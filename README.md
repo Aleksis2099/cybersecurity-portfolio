@@ -42,7 +42,7 @@ and hunt bugs in real programs.
 ## 🎓 Currently learning
 
 ```
-PT1 (PenTest+)  →  Oct 2026           ← next big milestone (ruta THM)
+PT1 (TryHackMe Offensive Certification)  →  Oct 2026
 PenTest+ (CompTIA)     →  después de la PT1
 PNPT / OSCP     →  the long game
 AI & LLM Security → futuro (prompt injection, agents)
