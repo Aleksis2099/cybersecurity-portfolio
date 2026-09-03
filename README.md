@@ -1,4 +1,4 @@
-# 🔐 Alexis Roman — Aspiring Penetration Tester / Red Teamer
+# 🔐 Alexis Romero — Aspiring Penetration Tester / Red Teamer
 
 ![Banner - Cybersecurity Portfolio](https://img.shields.io/badge/Security-Offensive-red) ![Languages - Python/Bash](https://img.shields.io/badge/Languages-Python%20%7C%20Bash-blue) ![Status - Learning](https://img.shields.io/badge/Status-Learning%20Every%20Day-green)
 
@@ -10,7 +10,7 @@
 
 Cybersecurity professional focused on **offensive security** — penetration testing,
 web application security, and (soon) AI/LLM security. Currently pursuing a
-**B.S. in Cybersecurity** (SNHU, expected 2027) and the **PT1 (PenTest+)** certification.
+**B.S. in Cybersecurity** (SNHU, expected 2027) and the **PT1 (PenTest+)** certification (ruta de estudio TryHackMe).
 
 I learn by doing: I build my own tools, solve machines on TryHackMe/HackTheBox,
 and hunt bugs in real programs.

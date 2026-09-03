@@ -19,8 +19,8 @@
 | TryHackMe — Jr Penetration Tester path | ✅ Completado |
 | TryHackMe — Hacker rank | ✅ Logrado |
 | Google — Cyber Security Professional (coursera) | ✅ Completado |
-| **CompTIA PT1 (PenTest+)** | 🔜 **EXAMEN: 1 OCT 2026** |
-| eJPT (eLearnSecurity) | 📅 Después de PT1 |
+| **PT1 (PenTest+) — examen final del path de TryHackMe** | 🔜 **EXAMEN: 1 OCT 2026** |
+| **Security+ (CompTIA)** | 📅 Después de PT1 |
 | PNPT (TCM Security) | 📅 Meta |
 | OSCP (OffSec) | 📅 La meta final |
 
@@ -29,7 +29,7 @@
 ## 🗺️ Roadmap público
 
 ```
-PT1 (Oct 2026) → eJPT → PNPT → OSCP
+PT1 (Oct 2026) → Security+ (CompTIA) → PNPT → OSCP
      │
      └── + AI & LLM Security (mi diferenciador)
 ```
@@ -47,4 +47,4 @@ PT1 (Oct 2026) → eJPT → PNPT → OSCP
 ## 📚 Cursos en curso
 
 - [Curso X / Roadmap Y] — en progreso
-- Preparación PT1: guías oficiales CompTIA + práctica de labs
+- Preparación PT1: path TryHackMe Jr Pentester + práctica de labs
