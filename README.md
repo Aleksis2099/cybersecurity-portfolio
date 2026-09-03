@@ -42,10 +42,10 @@ and hunt bugs in real programs.
 ## 🎓 Currently learning
 
 ```
-PT1 (PenTest+)  →  Oct 2026           ← next big milestone
-eJPT            →  after PT1
+PT1 (PenTest+)  →  Oct 2026           ← next big milestone (ruta THM)
+PenTest+ (CompTIA)     →  después de la PT1
 PNPT / OSCP     →  the long game
-AI & LLM Security → my differentiator (prompt injection, agents)
+AI & LLM Security → futuro (prompt injection, agents)
 ```
 
 ---
